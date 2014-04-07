@@ -46,7 +46,7 @@ if (method == 1){
 H = array(NA, c(N, N, T)) # Covariance vector
 C = array(NA, c(N, N, T)) # Correlation vector
 R = array(NA, c(N, N, T)) # Squared residuals
-H1 = as.matrix(read.csv(paste(filepath,"Ht.csv", sep=""), header=FALSE))
+H1 = cov(data, use="pairwise") # Estimate the PAIWISE covariance by ignoring the NaN
 H[ , , 1] = H1
 C[ , , 1]= cov2cor(H1)
 }
